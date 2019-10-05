@@ -21,4 +21,6 @@ exec qemu-system-x86_64 \
   -device e1000,netdev=virtnet0,mac=fa:06:8a:4a:18:06 \
   -enable-kvm \
   -smp 4,cores=2,threads=2,sockets=1 \
+  -fsdev local,id=common,path=/home/kongjiadongyuan/common,security_model=passthrough \
+  -device virtio-9p-pci,id=fs0,fsdev=common,mount_tag=kernel_mount \
   -s
